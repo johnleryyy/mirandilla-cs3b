@@ -2,7 +2,7 @@
 
 by: JOHNLERY E. MIRANDILLA
 
-[My published app](https://musical-goldfish-wrg6wrpwpjgc5g74-8501.app.github.dev/)
+[My published app](https://mirandilla-cs3b-clumq2jdtyf.streamlit.app/)
 
 This is the app you get when you run `streamlit hello`, extracted as its own app.
 
