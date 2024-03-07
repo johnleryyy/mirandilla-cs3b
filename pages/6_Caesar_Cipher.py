@@ -27,7 +27,7 @@ def caesar_cipher(char, shift):
             return chr((ord(char) + shift - 32 + 94) % 94 + 32)
     else:
         return chr((ord(char) + shift - 32 + 94) % 94 + 32)
-    
+
 def main():
     st.title("Caesar Cipher Encryption & Decryption")
     st.subheader("Encrypt and Decrypt using Caesar Cipher")
@@ -42,10 +42,6 @@ def main():
     if st.button("Decrypt"):
         decrypted_text = encrypt_decrypt(text, shift_keys, True)
         st.write("Decrypted Text:", decrypted_text)
-        st.write("Text:", text)
-        st.write("Shift keys:", " ".join(map(str, shift_keys)))
-        st.write("Cipher:", encrypted_text)
-        st.write("Decrypted text:", decrypted_text)
 
 if __name__ == "__main__":
     main()
