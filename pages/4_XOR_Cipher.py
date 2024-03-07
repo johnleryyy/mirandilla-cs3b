@@ -1,7 +1,7 @@
 import streamlit as st
+
 def xor_encrypt(plaintext, key):
     """Encrypts plaintext using XOR cipher with the given key, printing bits involved."""
-
     ciphertext = bytearray()
     for i in range(len(plaintext)):
         plaintext_byte = plaintext[i]
@@ -18,21 +18,30 @@ def xor_encrypt(plaintext, key):
 
 def xor_decrypt(ciphertext, key):
     """Decrypts ciphertext using XOR cipher with the given key."""
-    return xor_encrypt(ciphertext, key)   
+    return xor_encrypt(ciphertext, key)
 
-# Example usage:
-plaintext = bytes(st.text_area("Plaintext:").encode())
-key = bytes(st.text_area("Key:").encode())
+def main():
+    st.title("XOR Cipher Encryption & Decryption")
+    st.subheader("Encrypt and Decrypt using XOR Cipher")
     
-if len(plaintext) >= len(key):
-    if plaintext != key:
-        cipher = xor_encrypt(plaintext, key)
-        st.write(f"Ciphertext:", "".join([f"{chr(byte_val)}" for byte_val in cipher]))
+    plaintext = st.text_area("Plaintext:")
+    key = st.text_area("Key:")
+    
+    if st.button("Encrypt / Decrypt"):
+        plaintext_bytes = bytes(plaintext.encode())
+        key_bytes = bytes(key.encode())
         
-        decrypt = xor_decrypt(cipher, key)
-        st.write(f"Decrypted:", "".join([f"{chr(byte_va)}" for byte_va in decrypt]))
-    else:
-        st.write("Plaintext should not be equal to the key")
-else:
-    st.write("Plaintext length should be equal or greater than the length of key")
+        if len(plaintext_bytes) >= len(key_bytes):
+            if plaintext_bytes != key_bytes:
+                cipher = xor_encrypt(plaintext_bytes, key_bytes)
+                st.write("Ciphertext:", "".join([chr(byte_val) for byte_val in cipher]))
 
+                decrypt = xor_decrypt(cipher, key_bytes)
+                st.write("Decrypted:", "".join([chr(byte_val) for byte_val in decrypt]))
+            else:
+                st.write("Plaintext should not be equal to the key")
+        else:
+            st.write("Plaintext length should be equal or greater than the length of key")
+
+if __name__ == "__main__":
+    main()
