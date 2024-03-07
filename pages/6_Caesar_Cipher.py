@@ -27,11 +27,7 @@ def caesar_cipher(char, shift):
             return chr((ord(char) + shift - 32 + 94) % 94 + 32)
     else:
         return chr((ord(char) + shift - 32 + 94) % 94 + 32)
-
-def display_encryption_decryption_details(details, ifdecrypt):
-    for i,(char, shift, result_char) in enumerate(details):
-        st.write(f"{i} {char} {shift} {result_char}")
-
+    
 def main():
     st.title("Caesar Cipher Encryption & Decryption")
     st.subheader("Encrypt and Decrypt using Caesar Cipher")
