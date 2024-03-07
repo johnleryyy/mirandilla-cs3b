@@ -33,7 +33,9 @@ def main():
     st.subheader("Encrypt and Decrypt using Caesar Cipher")
     text = st.text_input("Enter the text:")
     shift_keys = st.text_input("Enter the shift keys (comma-separated integers within square brackets):")
-    shift_keys = list(map(int, shift_keys.replace('[','').replace(']','').replace(',','').split()))
+    shift_keys = shift_keys.strip()
+    if shift_keys:
+        shift_keys = list(map(int, shift_keys.replace('[','').replace(']','').replace(',','').split()))
 
     if st.button("Encrypt"):
         encrypted_text = encrypt_decrypt(text, shift_keys, False)
