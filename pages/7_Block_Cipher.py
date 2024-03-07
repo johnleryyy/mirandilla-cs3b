@@ -1,13 +1,13 @@
 import streamlit as st
 
 def pad(data, block_size):    
-    padding_length = block_size - len(data) % block_size  
-    padding = bytes([padding_length] * padding_length)  
-    return data + padding                          
+    padding_length = block_size - len(data) % block_size
+    padding = bytes([padding_length] * padding_length)
+    return data + padding_length.to_bytes(1, byteorder='big') * padding_length
 
 def unpad(data):
     padding_length = data[-1]
-    return data[:-padding_length]                           
+    return data[:-padding_length]
 
 def xor_encrypt_block(plaintext_block, key):
     encrypted_block = b''
