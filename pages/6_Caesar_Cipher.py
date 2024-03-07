@@ -46,17 +46,6 @@ def main():
     if st.button("Decrypt"):
         decrypted_text = encrypt_decrypt(text, shift_keys, True)
         st.write("Decrypted Text:", decrypted_text)
-
-    if st.checkbox("Show Encryption and Decryption Details"):
-        details_encrypt = [(char, shift_keys[i % len(shift_keys)], encrypted_text[i])for i, char in enumerate(text)]
-        details_decrypt = [(char, shift_keys[i % len(shift_keys)], decrypted_text[i])for i, char in enumerate(encrypted_text)]
-
-        st.write("Encryption Details:")
-        display_encryption_decryption_details(details_encrypt, False)
-        st.write('-' * 10)
-        st.write("Decryption Details:")
-        display_encryption_decryption_details(details_decrypt, True)
-        st.write('-' * 10)
         st.write("Text:", text)
         st.write("Shift keys:", " ".join(map(str, shift_keys)))
         st.write("Cipher:", encrypted_text)
