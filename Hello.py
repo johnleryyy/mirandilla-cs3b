@@ -1,52 +1,20 @@
-# Copyright (c) Streamlit Inc. (2018-2022) Snowflake Inc. (2022)
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 import streamlit as st
 from streamlit.logger import get_logger
 
 LOGGER = get_logger(__name__)
 
+st.set_page_config(
+    page_title="Applied Cryptography Project",
+    page_icon="🔑",
+)
 
-def run():
-    st.set_page_config(
-        page_title="Hello",
-        page_icon="👋",
-    )
+st.markdown("<h1 style='text-align: center;'>Applied Cryptography</h1>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'>Compilation of Learning Tasks</h2>", unsafe_allow_html=True)
+st.markdown("<hr>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>Here's where all my applied cryptography learning tasks come together. From mastering XOR Cipher and Caesar Cipher to exploring Primitive Root and Block Cipher, this compilation reflects my journey through these cryptographic techniques. Each task has been a stepping stone, enhancing my understanding and skill in securing information and communication.</p>", unsafe_allow_html=True)
+st.markdown("<hr>", unsafe_allow_html=True)
 
-    st.write("# Welcome to Streamlit! 👋")
-    st.write("by JOHNLERY E. MIRANDILLA")
-
-    st.sidebar.success("Select a demo above.")
-
-    st.markdown(
-        """
-        Streamlit is an open-source app framework built specifically for
-        Machine Learning and Data Science projects.
-        **👈 Select a demo from the sidebar** to see some examples
-        of what Streamlit can do!
-        ### Want to learn more?
-        - Check out [streamlit.io](https://streamlit.io)
-        - Jump into our [documentation](https://docs.streamlit.io)
-        - Ask a question in our [community
-          forums](https://discuss.streamlit.io)
-        ### See more complex demos
-        - Use a neural net to [analyze the Udacity Self-driving Car Image
-          Dataset](https://github.com/streamlit/demo-self-driving)
-        - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
-    """
-    )
-
-
-if __name__ == "__main__":
-    run()
+st.text("Name:          Sayson, Nestor Jr. B.")
+st.text("Section:       BSCS 3B")
+st.text("Instructor:    Mr. Allan Ibo Jr.")
+st.divider()
