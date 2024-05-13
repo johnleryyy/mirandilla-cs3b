@@ -20,7 +20,7 @@ def hash_file_sha512(file_contents):
     return hashlib.sha512(file_contents.encode()).hexdigest()
 
 def main():
-    st.title("Text Hashing App")
+    st.title("Hash Function")
     option = st.radio("Choose hashing function:", ("SHA-1", "SHA-256", "SHA-512"))
     input_type = st.radio("Choose input type:", ("Text", "File"))
     
