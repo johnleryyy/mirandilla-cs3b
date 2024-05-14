@@ -1,7 +1,7 @@
 import streamlit as st
 import hashlib
 
-# Functions to hash text using different algorithms
+# Functions to hash text using md5, sha1, sha256, and sh512
 def hash_md5(text):
     return hashlib.md5(text.encode()).hexdigest()
 
@@ -14,7 +14,7 @@ def hash_sha256(text):
 def hash_sha512(text):
     return hashlib.sha512(text.encode()).hexdigest()
 
-# Functions to hash file contents using different algorithms
+# Functions to hash file contents using md5, sha1, sha256, and sh512
 def hash_file_md5(file_contents):
     return hashlib.md5(file_contents.encode()).hexdigest()
 
@@ -30,7 +30,7 @@ def hash_file_sha512(file_contents):
 def main():
     st.title("Hash Function")
 
-    # Create tabs for each hashing algorithm
+    # Create tabs for each hashing function
     tabs = st.tabs(["MD5", "SHA-1", "SHA-256", "SHA-512"])
     
     for i, option in enumerate(["MD5", "SHA-1", "SHA-256", "SHA-512"]):
@@ -39,7 +39,7 @@ def main():
             input_type = st.radio(f"Choose input type for {option}:", ("Text", "File"))
             
             if input_type == "Text":
-                # Text area for user to input text
+                # input function for text 
                 input_text = st.text_area(f"Enter text for {option}:")
                 
                 if st.button(f"Hash Text using {option}"):
@@ -58,13 +58,13 @@ def main():
                     st.write(hashed_text)
                 
             elif input_type == "File":
-                # File uploader for user to upload a file
+                # input function for file
                 uploaded_file = st.file_uploader(f"Upload a file for {option}")
                 if uploaded_file is not None:
                     # Read the contents of the file and decode it to a string
                     file_contents = uploaded_file.getvalue().decode("utf-8")
                     if st.button(f"Hash File using {option}"):
-                        # Perform hashing based on the selected algorithm
+                        # Perform hashing based on the selected function
                         if option == "MD5":
                             hashed_text = hash_file_md5(file_contents)
                         elif option == "SHA-1":
